@@ -12,15 +12,11 @@
 <ion-content padding>
   <ion-list> 
       
-      <ion-item-sliding
-      #slidingItem
-       *ngFor="let task of tasks">
-       <ion-item 
-       [ngClass]="{taskDone: task.status=='done'}"
-       >
+      <ion-item-sliding #slidingItem *ngFor="let task of tasks">
+       <ion-item  [ngClass]="{taskDone: task.status=='done'}" >
             {{task.title}}
          </ion-item>
-         <ion-item-options side="right">
+         <ion-item-options (click)="slidingItem" side="right">
             <button ion-button icon-only (click)="markDone(task)" color="secondary">
            <ion-icon name="checkmark"></ion-icon>
             </button>
